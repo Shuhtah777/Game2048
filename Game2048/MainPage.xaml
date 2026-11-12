@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Game2048.MainPage"
+    BackgroundColor="#101014">
+
+    <ScrollView
+    HorizontalOptions="Fill"
+    VerticalOptions="Fill">
+
+        <VerticalStackLayout
+        Padding="20"
+        Spacing="15"
+        WidthRequest="400"
+        HorizontalOptions="Center"
+        VerticalOptions="Center">
+
+            <Label
+                Text="2048"
+                FontSize="52"
+                FontAttributes="Bold"
+                TextColor="#FF304F"
+                HorizontalOptions="Center"/>
+
+            <Label
+                Text="Об'єднуй числа та отримай 2048!"
+                FontSize="15"
+                TextColor="White"
+                HorizontalOptions="Center"/>
+
+            <VerticalStackLayout
+                x:Name="MenuPanel"
+                Spacing="15"
+                IsVisible="True">
+
+                <Button
+                    Text="НОВА ГРА"
+                    Clicked="StartGame_Clicked"
+                    BackgroundColor="#FF304F"
+                    TextColor="White"
+                    FontSize="18"
+                    HeightRequest="55"/>
+
+                <Button
+                    Text="ЗАВАНТАЖИТИ"
+                    Clicked="LoadGame_Clicked"
+                    BackgroundColor="#292930"
+                    TextColor="White"
+                    FontSize="18"
+                    HeightRequest="55"/>
+
+                <Button
+                    Text="ВИХІД"
+                    Clicked="Exit_Clicked"
+                    BackgroundColor="#292930"
+                    TextColor="White"
+                    FontSize="18"
+                    HeightRequest="55"/>
+
+            </VerticalStackLayout>
+
+            <VerticalStackLayout
+                x:Name="GamePanel"
+                Spacing="12"
+                IsVisible="False">
+
+                <Grid ColumnDefinitions="*,Auto">
+
+                    <VerticalStackLayout>
+                        <Label
+                            Text="РАХУНОК"
+                            TextColor="#AAAAAA"
+                            FontSize="12"/>
+
+                        <Label
+                            x:Name="ScoreLabel"
+                            Text="0"
+                            TextColor="White"
+                            FontSize="28"
+                            FontAttributes="Bold"/>
+                    </VerticalStackLayout>
+
+                    <Button
+                        Grid.Column="1"
+                        Text="ЗБЕРЕГТИ"
+                        Clicked="SaveGame_Clicked"
+                        BackgroundColor="#292930"
+                        TextColor="White"
+                        VerticalOptions="Center"/>
+
+                </Grid>
+
+                <Grid
+                    x:Name="BoardGrid"
+                    WidthRequest="340"
+                    HeightRequest="340"
+                    BackgroundColor="#292930"
+                    Padding="5"
+                    RowSpacing="5"
+                    ColumnSpacing="5"/>
+
+                <Label
+                    Text="КЕРУВАННЯ"
+                    TextColor="#AAAAAA"
+                    HorizontalOptions="Center"
+                    FontSize="13"/>
+
+                <Grid
+                    ColumnDefinitions="*,*,*"
+                    RowDefinitions="Auto,Auto"
+                    ColumnSpacing="8"
+                    RowSpacing="8">
+
+                    <Button
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Text="↑"
+                        Clicked="Up_Clicked"
+                        BackgroundColor="#FF304F"
+                        TextColor="White"
+                        FontSize="25"
+                        HeightRequest="55"/>
+
+                    <Button
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Text="←"
+                        Clicked="Left_Clicked"
+                        BackgroundColor="#FF304F"
+                        TextColor="White"
+                        FontSize="25"
+                        HeightRequest="55"/>
+
+                    <Button
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Text="↓"
+                        Clicked="Down_Clicked"
+                        BackgroundColor="#FF304F"
+                        TextColor="White"
+                        FontSize="25"
+                        HeightRequest="55"/>
+
+                    <Button
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Text="→"
+                        Clicked="Right_Clicked"
+                        BackgroundColor="#FF304F"
+                        TextColor="White"
+                        FontSize="25"
+                        HeightRequest="55"/>
+
+                </Grid>
+
+                <Button
+                    Text="ГОЛОВНЕ МЕНЮ"
+                    Clicked="Menu_Clicked"
+                    BackgroundColor="#292930"
+                    TextColor="White"
+                    HeightRequest="45"/>
+
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
